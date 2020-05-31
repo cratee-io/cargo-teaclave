@@ -5,13 +5,7 @@ import (
 	"path/filepath"
 )
 
-const SDKVersion = "v1.1.2"
-
-var (
-	Debug bool
-
-	homeDir string
-)
+var homeDir string
 
 //func DefaultConfigPath() string {
 //	return filepath.Join(homeDir, "config.toml")
