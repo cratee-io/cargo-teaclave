@@ -15,8 +15,20 @@ limitations under the License.
 */
 package main
 
-import "github.com/sammyne/cargo-teaclave/cmd"
+import (
+	"os"
+	"path/filepath"
+	"strings"
+
+	"github.com/sammyne/cargo-teaclave/cmd"
+)
 
 func main() {
+	if binName := filepath.Base(os.Args[0]); strings.HasPrefix(binName, "cargo-") &&
+		len(os.Args) > 1 && os.Args[1] == cmd.RootCommandName() {
+		// address the duplicate command when used as a cargo plugin
+		os.Args = os.Args[1:]
+	}
+
 	cmd.Execute()
 }

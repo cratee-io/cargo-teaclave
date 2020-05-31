@@ -46,6 +46,10 @@ func Execute() {
 	}
 }
 
+func RootCommandName() string {
+	return rootCmd.Use
+}
+
 func init() {
 	//cobra.OnInitialize(initConfig)
 
