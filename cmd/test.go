@@ -48,11 +48,10 @@ func init() {
 	rootCmd.AddCommand(testCmd)
 
 	// Here you will define your flags and configuration settings.
-	testCmd.Flags().StringVar(&testCmdCratePath, "crate", "", "path of the crate to test")
+	workingDir, _ := os.Getwd()
+	testCmd.Flags().StringVar(&testCmdCratePath, "crate", workingDir,
+		"path of the crate to test")
+
 	testCmd.Flags().StringVar(&testCmdDriverTag, "driver", "v1.1.2",
 		"tag of the driver to use, e.g. v1.1.2")
-
-	if err := testCmd.MarkFlagRequired("crate"); err != nil {
-		panic(err)
-	}
 }
