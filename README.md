@@ -1,6 +1,6 @@
 # cargo-teaclave
 
-![minimum go](https://img.shields.io/badge/go-1.14%2B-blue)
+![minimum go](https://img.shields.io/badge/go-1.15%2B-blue)
 
 A cargo plugin serves to ease developing apps with the [teaclave-sgx-sdk][2] project.
 

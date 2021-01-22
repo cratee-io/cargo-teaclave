@@ -9,7 +9,6 @@ import (
 
 	"github.com/sammyne/cargo-teaclave/pkg/assets"
 	"github.com/sammyne/cargo-teaclave/pkg/cargo"
-
 	"github.com/sammyne/cargo-teaclave/pkg/xpackr"
 )
 
@@ -41,6 +40,30 @@ func NewWorkspace(cratePath, testingDriverTag string) (string, error) {
 	if err := cargo.UseLocalCrate4Dependency(driverEnclaveCratePath, testedCrateName,
 		cratePath); err != nil {
 		return "", fmt.Errorf("fail to set up workspace to test '%s': %w", cratePath, err)
+	}
+
+	return workingDir, nil
+}
+
+func NewWorkspaceV2(cratePath, driverTag string) (string, error) {
+	workingDir, err := ioutil.TempDir("", "teaclave-testing-driver-")
+	if err != nil {
+		return "", fmt.Errorf("fail to make a temporary working directory: %w", err)
+	}
+
+	const driverPath = "testing-driver"
+	if err := xpackr.CopyDirFromBox(assets.RootDir, driverPath, workingDir); err != nil {
+		return "", fmt.Errorf("new driver project: %w", err)
+	}
+
+	if err := addEDL4Driver(workingDir, driverTag); err != nil {
+		return "", fmt.Errorf("renew EDLs: %w", err)
+	}
+
+	driverEnclaveCratePath := filepath.Join(workingDir, "enclave")
+	if err := cargo.UseLocalCrate4Dependency(driverEnclaveCratePath, testedCrateName,
+		cratePath); err != nil {
+		return "", fmt.Errorf("set up workspace to test '%s': %w", cratePath, err)
 	}
 
 	return workingDir, nil

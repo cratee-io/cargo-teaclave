@@ -16,6 +16,7 @@ limitations under the License.
 package cmd
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/sammyne/cargo-teaclave/tools/testings"
@@ -32,11 +33,12 @@ var testCmd = &cobra.Command{
 	Use:   "test",
 	Short: "test a given teaclave-sgx-sdk-ported crate",
 	Run: func(cmd *cobra.Command, args []string) {
-		workingDir, err := testings.NewWorkspace(testCmdCratePath, testCmdDriverTag)
+		workingDir, err := testings.NewWorkspaceV2(testCmdCratePath, testCmdDriverTag)
 		if err != nil {
 			panic(err)
 		}
-		defer os.RemoveAll(workingDir)
+		fmt.Println(workingDir)
+		//defer os.RemoveAll(workingDir)
 
 		if err := testings.Run(workingDir); err != nil {
 			panic(err)
@@ -52,6 +54,6 @@ func init() {
 	testCmd.Flags().StringVar(&testCmdCratePath, "crate", workingDir,
 		"path of the crate to test")
 
-	testCmd.Flags().StringVar(&testCmdDriverTag, "driver", "v1.1.2",
-		"tag of the driver to use, e.g. v1.1.2")
+	testCmd.Flags().StringVar(&testCmdDriverTag, "driver", "1.1.3",
+		"tag of the driver to use, e.g. 1.1.3")
 }

@@ -1,9 +1,10 @@
 module github.com/sammyne/cargo-teaclave
 
-go 1.14
+go 1.15
 
 require (
 	github.com/gobuffalo/logger v1.0.3 // indirect
+	github.com/gobuffalo/packd v0.3.0
 	github.com/gobuffalo/packr/v2 v2.7.1
 	github.com/magiconair/properties v1.8.1 // indirect
 	github.com/pelletier/go-toml v1.5.0 // indirect

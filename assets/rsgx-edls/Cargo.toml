@@ -1,0 +1,11 @@
+[package]
+name = "rsgx-edls"
+version = "0.1.0"
+authors = ["sammyne <lixiangmin01@baidu.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies.sgx_edl]
+git = "https://github.com/apache/incubator-teaclave-sgx-sdk"
+rev = "32b2d1f137ef5742e4e6320b3e1e38fa318a56f6"

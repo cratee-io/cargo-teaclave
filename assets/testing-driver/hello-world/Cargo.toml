@@ -1,5 +1,5 @@
 [package]
-name = "test-hello-world"
+name = "hello-world"
 version = "0.1.0"
 authors = ["sammyne <lixiangmin01@baidu.com>"]
 edition = "2018"
@@ -8,13 +8,11 @@ edition = "2018"
 
 [dependencies]
 
-[dependencies.sgx_tstd]
-git         = "https://github.com/apache/teaclave-sgx-sdk"
+# dependencies for testing
+testing =  { path = "../../..", optional = true }
 
-[dependencies.testing]
-branch      = "main"
-git         = "https://github.com/cratee-io/testing"
-optional    = true
+[dependencies.sgx_tstd]
+git = "https://github.com/apache/teaclave-sgx-sdk"
 
 [features]
 default = []
