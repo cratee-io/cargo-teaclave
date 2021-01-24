@@ -16,7 +16,7 @@ development and testing purposes.
 ### Install
 
 ```bash
-go get -u -v github.com/sammyne/cargo-teaclave
+go get -u -v github.com/cratee-io/cargo-teaclave
 
 # please update ~/.cargo/bin/ to your $CARGO_HOME if you have customized it
 mv $(go env GOPATH)/bin/cargo-teaclave ~/.cargo/bin/

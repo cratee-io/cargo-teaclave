@@ -1,4 +1,4 @@
-module github.com/sammyne/cargo-teaclave
+module github.com/cratee-io/cargo-teaclave
 
 go 1.15
 

@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/sammyne/cargo-teaclave/tools/testings"
+	"github.com/cratee-io/cargo-teaclave/tools/testings"
 	"github.com/spf13/cobra"
 )
 

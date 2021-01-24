@@ -20,7 +20,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/sammyne/cargo-teaclave/cmd"
+	"github.com/cratee-io/cargo-teaclave/cmd"
 )
 
 func main() {

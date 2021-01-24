@@ -17,7 +17,7 @@ tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz
 ln -sf /usr/local/go/bin/* /usr/bin                               
 go version
 go env -w GO111MODULE=on
-go get -u -v github.com/sammyne/cargo-teaclave@master
+go get -u -v github.com/cratee-io/cargo-teaclave@master
 mv $(go env GOPATH)/bin/cargo-teaclave ~/.cargo/bin/
 
 cargo teaclave test

@@ -7,9 +7,9 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/sammyne/cargo-teaclave/pkg/assets"
-	"github.com/sammyne/cargo-teaclave/pkg/cargo"
-	"github.com/sammyne/cargo-teaclave/pkg/xpackr"
+	"github.com/cratee-io/cargo-teaclave/pkg/assets"
+	"github.com/cratee-io/cargo-teaclave/pkg/cargo"
+	"github.com/cratee-io/cargo-teaclave/pkg/xpackr"
 )
 
 const (

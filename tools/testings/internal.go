@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/sammyne/cargo-teaclave/pkg/xpackr"
-	"github.com/sammyne/cargo-teaclave/tools/assets"
+	"github.com/cratee-io/cargo-teaclave/pkg/xpackr"
+	"github.com/cratee-io/cargo-teaclave/tools/assets"
 )
 
 func addEDL4Driver(workdir, tag string) error {
