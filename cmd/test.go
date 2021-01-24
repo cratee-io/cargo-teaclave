@@ -16,11 +16,11 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
 	"os"
 
-	"github.com/cratee-io/cargo-teaclave/tools/testings"
 	"github.com/spf13/cobra"
+
+	"github.com/cratee-io/cargo-teaclave/tools/testings"
 )
 
 var (
@@ -37,8 +37,7 @@ var testCmd = &cobra.Command{
 		if err != nil {
 			panic(err)
 		}
-		fmt.Println(workingDir)
-		//defer os.RemoveAll(workingDir)
+		defer os.RemoveAll(workingDir)
 
 		if err := testings.Run(workingDir); err != nil {
 			panic(err)

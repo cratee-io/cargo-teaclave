@@ -44,5 +44,5 @@ jobs:
         . ~/.cargo/env                                        &&
         . /opt/intel/sgxsdk/environment                       &&
         go build -o ~/.cargo/bin/cargo-teaclave               &&
-        cargo teaclave test --crate examples/test-hello-world
+        cargo teaclave test --crate examples/test-hello-world --driver 1.1.3
       shell: bash

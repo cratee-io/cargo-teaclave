@@ -66,6 +66,11 @@ func NewWorkspaceV2(cratePath, driverTag string) (string, error) {
 		return "", fmt.Errorf("set up workspace to test '%s': %w", cratePath, err)
 	}
 
+	workspaceManifestPath := filepath.Join(workingDir, "Cargo.toml")
+	if err := newCargoWorkspaceManifest(workspaceManifestPath, driverTag); err != nil {
+		return "", fmt.Errorf("new cargo workspace manifest: %w", err)
+	}
+
 	return workingDir, nil
 }
 
