@@ -41,7 +41,8 @@ jobs:
         key: ${{ runner.os }}-cargo-index-${{ hashFiles('**/Cargo.toml') }}
     - name: Run tests
       run: |
-        go build -o ~/.cargo/bin/cargo-teaclave               &&
         . ~/.cargo/env                                        &&
+        . /opt/intel/sgxsdk/environment                       &&
+        go build -o ~/.cargo/bin/cargo-teaclave               &&
         cargo teaclave test --crate examples/test-hello-world
       shell: bash
