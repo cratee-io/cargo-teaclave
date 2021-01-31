@@ -3,6 +3,7 @@
 ![minimum go](https://img.shields.io/badge/go-1.15%2B-blue)
 ![rustc](https://img.shields.io/badge/rustc-ffa2e7ae8%202020--10--24-blue)
 ![cmake](https://img.shields.io/badge/cmake-3.10%2B-blue)
+![test-hello-world](https://github.com/cratee-io/cargo-teaclave/workflows/test-hello-world/badge.svg)
 
 A cargo plugin serves to ease developing apps with the [teaclave-sgx-sdk][2] project.
 
