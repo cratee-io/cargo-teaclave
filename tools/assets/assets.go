@@ -30,7 +30,6 @@ func Path4EDL(tag string) (string, error) {
 }
 
 func Tags4EDL() ([]string, error) {
-
 	var tags []string
 	tagged := make(map[string]bool)
 	_ = RootDir.WalkPrefix(edlPathPrefix, func(filename string, _ packd.File) error {

@@ -33,7 +33,7 @@ var testCmd = &cobra.Command{
 	Use:   "test",
 	Short: "test a given teaclave-sgx-sdk-ported crate",
 	Run: func(cmd *cobra.Command, args []string) {
-		workingDir, err := testings.NewWorkspaceV2(testCmdCratePath, testCmdDriverTag)
+		workingDir, err := testings.NewWorkspace(testCmdCratePath, testCmdDriverTag)
 		if err != nil {
 			panic(err)
 		}

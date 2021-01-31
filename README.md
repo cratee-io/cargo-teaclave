@@ -1,6 +1,8 @@
 # cargo-teaclave
 
 ![minimum go](https://img.shields.io/badge/go-1.15%2B-blue)
+![rustc](https://img.shields.io/badge/rustc-ffa2e7ae8%202020--10--24-blue)
+![cmake](https://img.shields.io/badge/cmake-3.10%2B-blue)
 
 A cargo plugin serves to ease developing apps with the [teaclave-sgx-sdk][2] project.
 
@@ -10,7 +12,7 @@ development and testing purposes.
 
 ### Prerequisites
 - cmake 3.10+
-- cargo 1.44.0-nightly (6e07d2dfb 2020-03-31)
+- rustc 1.49.0-nightly (ffa2e7ae8 2020-10-24)
 - go    1.14+
 
 ### Install
