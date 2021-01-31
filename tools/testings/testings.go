@@ -7,15 +7,11 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/cratee-io/cargo-teaclave/pkg/assets"
 	"github.com/cratee-io/cargo-teaclave/pkg/cargo"
-	"github.com/cratee-io/cargo-teaclave/pkg/xpackr"
+	assetsPkg "github.com/cratee-io/cargo-teaclave/tools/assets"
 )
 
-const (
-	testedCrateName = "wheel"
-	testingDriver   = "testing-driver"
-)
+const testedCrateName = "wheel"
 
 // NewWorkspace sets up a temporary workspace to test the crate at cratePath with
 // the driver tagged by driverTag
@@ -25,12 +21,12 @@ func NewWorkspace(cratePath, driverTag string) (string, error) {
 		return "", fmt.Errorf("fail to make a temporary working directory: %w", err)
 	}
 
-	const driverPath = "testing-driver"
-	if err := xpackr.CopyDirFromBox(assets.RootDir, driverPath, workingDir); err != nil {
+	if err := assetsPkg.CopyTestingDriverTo(workingDir); err != nil {
 		return "", fmt.Errorf("new driver project: %w", err)
 	}
 
-	if err := addEDL4Driver(workingDir, driverTag); err != nil {
+	edlsPath := filepath.Join(workingDir, "third_party", "rsgx-assets", "vendor", "sgx_edl")
+	if err := assetsPkg.CopyEDLsTo(edlsPath, driverTag); err != nil {
 		return "", fmt.Errorf("renew EDLs: %w", err)
 	}
 
@@ -74,8 +70,8 @@ func Run(workspace string) error {
 }
 
 func init() {
-	if _, err := assets.Tags(testingDriver); err != nil {
-		panic(fmt.Sprintf("%v", err))
+	if _, err := assetsPkg.Tags4EDL(); err != nil {
+		panic(fmt.Sprintf("no availabble EDLs: %v", err))
 	}
 }
 
