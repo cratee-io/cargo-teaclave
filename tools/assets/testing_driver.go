@@ -7,5 +7,5 @@ import (
 const testingDriverPath = "testing-driver"
 
 func CopyTestingDriverTo(dst string) error {
-	return xpackr.CopyDirFromBox(RootDir, testingDriverPath, dst)
+	return xpackr.CopyDirFromBox(rootDir, testingDriverPath, dst)
 }
