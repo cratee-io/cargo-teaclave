@@ -7,18 +7,10 @@ plugin.
 
 ### Run
 ```bash
-docker run -it -v ${PWD}:/workspace -w /workspace baiduxlab/sgx-rust:1804-1.1.2 bash
+docker run -it -v ${PWD}:/workspace -w /workspace \
+  sammyne/rsgx-dcap:2.12.100.3-dcap1.9.100.3-rs20201025-go1.15.7-ubuntu18.04 bash
 
 # from now on, we're within the container
-# install go
-export GO_VERSION=1.14.3                                     
-wget "https://dl.google.com/go/go${GO_VERSION}.linux-amd64.tar.gz"
-tar -C /usr/local -xzf go${GO_VERSION}.linux-amd64.tar.gz         
-ln -sf /usr/local/go/bin/* /usr/bin                               
-go version
-go env -w GO111MODULE=on
-go get -u -v github.com/cratee-io/cargo-teaclave@master
-mv $(go env GOPATH)/bin/cargo-teaclave ~/.cargo/bin/
 
 cargo teaclave test
 ```

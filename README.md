@@ -56,12 +56,11 @@ example | description
 During our daily development with [teaclave-sgx-sdk][2], we found it requires rigirous setting for
 its SGX SDK. It takes non-trivial works to set up the SGX SDK and rust toolchain. Therefore, it's
 recommended to just develop within the environment packaged by the official docker container (e.g.
-[baiduxlab/sgx-rust:1804-1.1.2][3] if you're playing with teaclave-sgx-sdk@v1.1.2).
+sammyne/rsgx-dcap:2.12.100.3-dcap1.9.100.3-rs20201025-go1.15.7-ubuntu18.04 if you're playing with teaclave-sgx-sdk@v1.1.3).
 
 ## References 
 - [README-Template][1]
 
 [1]: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 [2]: https://github.com/apache/incubator-teaclave-sgx-sdk
-[3]: https://hub.docker.com/layers/baiduxlab/sgx-rust/1804-1.1.2/images/sha256-3a2fc238147576552e9a651eeadae29e8729841d5f23b394d856c2fb64f5899c?context=explore
 [4]: ./examples/test-hello-world/README.md
