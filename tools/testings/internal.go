@@ -38,7 +38,13 @@ func newCargoWorkspaceManifest(outPath, driverTag string) error {
 		NewGit: sdkFromCratee,
 		Crates: make(map[string]string),
 	}
-	crates := []string{"sgx_tstd", "sgx_types"} // @TODO: make this configurable
+
+	// @TODO: make this configurable
+	crates := []string{
+		"sgx_alloc", "sgx_libc", "sgx_rand", "sgx_tcrypto", "sgx_tdh", "sgx_tcrypto_helper",
+		"sgx_tkey_exchange", "sgx_tprotected_fs", "sgx_trts", "sgx_tse", "sgx_tseal", "sgx_tstd",
+		"sgx_types", "sgx_ucrypto", "sgx_urts",
+	}
 	for _, v := range crates {
 		sdkPatch.Crates[v] = "v" + driverTag
 	}
